@@ -6,7 +6,7 @@ from langchain.memory import ConversationBufferMemory, ConversationSummaryMemory
 
 # reference = https://python.langchain.com/v0.1/docs/integrations/chat/google_generative_ai/
 
-llm = GeminiLLm().gemini_pro
+llm = GeminiLLm().chatBot
 
 memory = ConversationBufferMemory(memory_key="messages",
                                    return_messages=True)
