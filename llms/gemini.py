@@ -11,5 +11,5 @@ class GeminiLLm:
 
     @property
     def chatBot(self):
-        chat = ChatGoogleGenerativeAI(model="gemini-pro")
+        chat = ChatGoogleGenerativeAI(model="gemini-pro", convert_system_message_to_human=True)
         return chat
