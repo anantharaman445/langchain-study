@@ -12,6 +12,8 @@ llm = GeminiLLm().gemini_pro
 
 embiddings = GooglePalmEmbeddings()
 
+# print(embeddings)
+
 text_splitter = CharacterTextSplitter(chunk_size=200, separator="\n",
                                       chunk_overlap=0)
 loader = TextLoader("facts.txt")
@@ -29,6 +31,10 @@ db = Chroma.from_documents(docs, persist_directory='emb', embedding=embiddings)
 # '''Similarity search without score where k is no of desired results'''
 
 results = db.similarity_search("What is earth composed of?", k=1)
+# to find results using embeddings we computed already
+# emb = embiddings.embed_query("What is earth composed of?")
+# results = db.similarity_search_by_vector(emb, k=1)
+# print(results)
 # results = ["list of texts"]
 for result in results:
     print(result.page_content)
